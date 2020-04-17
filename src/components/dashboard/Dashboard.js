@@ -7,7 +7,7 @@ class Dashboard extends React.Component {
         return (
             <div className="dashboard container">
                 <div className="row">
-                    <div class="col s12 m6">
+                    <div className="col s12 m6">
                         <ProjectList/>
                     </div>
                     <div className="col s12 m5 offset-m1">
