@@ -28,7 +28,9 @@ const mapStateToProps = (state) => {
 }
 
 const dispatchStateToProps = (state, action) => {
-
+    return {
+        
+    }
 }
 
 export default connect(mapStateToProps, dispatchStateToProps)(Dashboard);
