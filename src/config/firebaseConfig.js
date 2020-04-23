@@ -1,9 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import 'firebase/auth';
+//import 'firebase/auth';
 
 // Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyDo2MgCeIJPkNSbEQM_fN1j65An9sMwWnE",
     authDomain: "dmd-react-redux-firebase.firebaseapp.com",
     databaseURL: "https://dmd-react-redux-firebase.firebaseio.com",
@@ -16,6 +16,6 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.firestore().settings({ timestampsInSnapshots: true });
+firebase.firestore();
 
 export default firebase;

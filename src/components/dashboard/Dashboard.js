@@ -22,15 +22,10 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log("mapped state on dashboard");
     return {
         projects: state.project.projects
     }
 }
 
-const dispatchStateToProps = (state, action) => {
-    return {
-        
-    }
-}
-
-export default connect(mapStateToProps, dispatchStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);

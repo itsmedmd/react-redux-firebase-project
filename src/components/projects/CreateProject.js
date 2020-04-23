@@ -6,18 +6,18 @@ class CreateProject extends React.Component {
     state = {
         title: "",
         content: ""
-    }
+    };
 
     handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
-        });
-    }
+        })
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.createProject(this.state);
-    }
+    };
    
     render() {
         return (
