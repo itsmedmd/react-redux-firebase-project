@@ -26,11 +26,11 @@ class CreateProject extends React.Component {
                     <h5 className="grey-text text-darken-3">Create New Project</h5>
                     <div className="input-field">
                         <label htmlFor="title">Title</label>
-                        <input onChange={this.handleChange} type="text" id="title"/>
+                        <input onChange={this.handleChange} type="text" id="title" required/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="content">Content</label>
-                        <textarea onChange={this.handleChange} id="content" className="materialize-textarea"></textarea>
+                        <textarea onChange={this.handleChange} id="content" className="materialize-textarea" required></textarea>
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Create New Project</button>
