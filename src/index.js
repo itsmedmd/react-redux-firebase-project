@@ -22,7 +22,7 @@ const store = createStore (
   rootReducer,
   compose(
     applyMiddleware(...middleware),
-    reduxFirestore(firebase)
+    reduxFirestore(firebase) // <- needed if using firestore
   )
 );
 
