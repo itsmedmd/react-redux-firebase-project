@@ -1,6 +1,7 @@
+import firebase from '../../config/firebaseConfig';
+
 export const signIn = (credentials) => {
     return (dispatch, getState) => {
-
         firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
