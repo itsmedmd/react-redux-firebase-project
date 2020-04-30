@@ -1,7 +1,6 @@
-import firebase from '../../config/firebaseConfig';
-
 export const signIn = (credentials) => {
-    return (dispatch, getState) => {
+    return (dispatch, getState, {getFirebase}) => {
+        const firebase = getFirebase();
         firebase.auth().signInWithEmailAndPassword(
             credentials.email,
             credentials.password
@@ -14,7 +13,8 @@ export const signIn = (credentials) => {
 }
 
 export const signOut = () => {
-    return (dispatch, getState) => {
+    return (dispatch, getState, {getFirebase}) => {
+        const firebase = getFirebase();
         firebase.auth().signOut().then(() => {
             dispatch({ type: 'SIGNOUT_SUCCESS' });
         });
@@ -22,7 +22,8 @@ export const signOut = () => {
 }
 
 export const signUp = (newUser) => {
-    return (dispatch, getState, {getFirestore}) => {
+    return (dispatch, getState, {getFirebase, getFirestore}) => {
+        const firebase = getFirebase();
         const firestore = getFirestore();
         firebase.auth().createUserWithEmailAndPassword(
             newUser.email,

@@ -10,14 +10,15 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider, useSelector } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createFirestoreInstance, getFirestore,reduxFirestore } from 'redux-firestore';
-import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
+import { ReactReduxFirebaseProvider, isLoaded, getFirebase } from 'react-redux-firebase';
 
 // created by me
 import firebase from './config/firebaseConfig';
 import rootReducer from './store/reducers/rootReducer';
 
-const middleware = [ thunk.withExtraArgument({getFirestore}) ];
+const middleware = [ thunk.withExtraArgument({getFirebase, getFirestore}) ];
 
+// create store
 const store = createStore (
   rootReducer,
   compose(
@@ -32,6 +33,7 @@ const rrfConfig = {
   useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
 }
 
+/// react-redux-firebase props for ReactReduxFirebaseProvider HOC
 const rrfProps = {
   firebase,
   config: rrfConfig,
@@ -39,6 +41,7 @@ const rrfProps = {
   createFirestoreInstance // <- needed if using firestore
 }
 
+// checks user authentication status before loading content
 function AuthIsLoaded({ children }) {
   const auth = useSelector(state => state.firebase.auth)
   if (!isLoaded(auth)) return <div>Loading Screen...</div>;
